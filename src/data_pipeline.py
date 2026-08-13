@@ -1,7 +1,5 @@
 import pandas as pd 
 
-
-
 def concat_data():
     # load in each flight, concat together
     jan = pd.read_csv("data/raw/2025/flight_2025_01.csv")
