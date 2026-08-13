@@ -221,4 +221,6 @@ __marimo__/
 
 data/
 
-mflow.db
+mlflow.db
+
+mlartifacts/
