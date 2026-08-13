@@ -65,7 +65,16 @@ def drop_redundant_cols(df, redundant_cols: list):
 def output_data(df):
     df.to_csv("data/processed/flight_data_2025.csv", index=False)
 
+def sample_data(df, n_per_month):
+    df = (
+        df.groupby("MONTH", group_keys=False)
+          .sample(n=n_per_month, random_state=42)
+    )
 
+    print(f"Sampled {n_per_month:,} flights per month")
+    print(f"Final sample size: {len(df):,}")
+
+    return df
 
 df = concat_data()
 df = drop_duplicates(df)
@@ -73,5 +82,6 @@ df = remove_cancelled_flights(df)
 df = drop_missing_y_data(df)
 df = create_airline_column(df)
 df = drop_redundant_cols(df, ["ORIGIN_CITY_NAME","DEST_CITY_NAME","ARR_DELAY_NEW"])
+df = sample_data(df, 30_000)
 output_data(df)
 
