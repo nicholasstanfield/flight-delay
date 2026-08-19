@@ -15,7 +15,7 @@ def concat_data():
     nov = pd.read_csv("data/raw/2025/flight_2025_11.csv")
     dec = pd.read_csv("data/raw/2025/flight_2025_12.csv")
 
-    df = pd.concat([jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec], ignore_index=True)
+    df = pd.concat([jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec], ignore_index=True) #create a new index for the data
 
     return df 
 
@@ -29,6 +29,8 @@ def drop_duplicates(df):
     return df 
 
 def remove_cancelled_flights(df):
+    """ Cancelled flights account for all (in the 2025) missing target rows. They are dropped here because they cannot be 
+    be used to predict delays """
 
     is_cancelled = df["CANCELLED"].astype(int) != 0 
     print(f"Total flights: {df.shape[0]}")
@@ -60,8 +62,25 @@ def drop_redundant_cols(df, redundant_cols: list):
     df = df.drop(redundant_cols, axis=1)
     return df
 
-def output_data(df):
-    df.to_csv("data/processed/flight_data_2025.csv", index=False)
+def make_route(df):
+    df["ROUTE"] = df["ORIGIN"] + "-" + df["DEST"]
+
+    print(f"There are {df['ROUTE'].nunique()} routes in the data")
+
+    return df 
+
+def convert_delay_to_int(df):
+
+    df["DELAY"] = df["ARR_DEL15"].astype(int)
+    df = df.drop("ARR_DEL15", axis=1)
+
+    return df
+
+#TODO CONVERT CRS TIME INTO HOURS 
+
+#TODO MERGE COORDS 
+
+#TODO MERGE WEATHER DATA 
 
 def sample_data(df, n_per_month):
     df = (
@@ -74,12 +93,20 @@ def sample_data(df, n_per_month):
 
     return df
 
+def output_data(df):
+    df.to_csv("data/processed/flight_data_2025.csv", index=False)
+
+
+
 df = concat_data()
 df = drop_duplicates(df)
 df = remove_cancelled_flights(df)
 df = drop_missing_y_data(df)
 df = create_airline_column(df)
 df = drop_redundant_cols(df, ["ORIGIN_CITY_NAME","DEST_CITY_NAME","ARR_DELAY_NEW"])
+df = make_route(df)
+df = convert_delay_to_int(df)
+
 df = sample_data(df, 30_000)
 output_data(df)
 
