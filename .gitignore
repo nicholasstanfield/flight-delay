@@ -226,3 +226,5 @@ mlflow.db
 mlartifacts/
 
 notebooks/pandas_prac.ipynb
+
+models/
