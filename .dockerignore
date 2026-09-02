@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# Python virtual environments
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# MLflow
+mlartifacts/
+mlflow.db
+
+# Raw/training data
+data/raw/
+data/processed/flight_data_2025.csv
+data/processed/flight_weather_data_2025.csv
+data/processed/weather_2025.parquet
+
+# Old models
+models/xgboost.joblib
+
+# Python/dev files
+.python-version
+
+# OS files
+.DS_Store
+
+# Docker itself isn't required inside image
+Dockerfile
+dockerfile
+.dockerignore
+
+# Documentation
+README.md

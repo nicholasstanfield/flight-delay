@@ -5,8 +5,28 @@ import joblib
 import requests
 from datetime import date, timedelta, time
 
+@st.cache_resource #cache the model to prevent unnecessary reloads
+def load_model():
+    return joblib.load("models/xgboost_v1.joblib")
+
 # load in model created by model_training.py
-model = joblib.load("models/xgboost_v1.joblib")
+model = load_model()
+
+@st.cache_data
+def load_data():
+    # contains flight time and distance for each route
+    data = pd.read_csv("data/processed/routes.csv")
+
+    # contains unique combination of origin, dest and airline 
+    valid_flights = pd.read_csv("data/processed/valid_flights.csv")
+
+
+    # contains lat, lon, timezone and full name for each airport
+    airport_information = pd.read_csv("data/processed/airport_information20260901.csv")
+
+    return data, valid_flights, airport_information
+
+data, valid_flights, airport_information = load_data()
 
 st.title("Flight Delay Predictor")
 
@@ -15,24 +35,8 @@ st.write(
     "that your flight will arrive late"
 )
 
-data = pd.read_csv("data/processed/routes.csv") # contains flight time and distance for each route
-
-# contains lat, lon, timezone and full name for each airport
-airline_information = pd.read_csv("data/processed/airport_information20260901.csv") 
-
-airlines = ['American Airlines Inc.',
- 'United Air Lines Inc.',
- 'Delta Air Lines Inc.',
- 'Alaska Airlines Inc.',
- 'Republic Airline',
- 'SkyWest Airlines Inc.',
- 'Southwest Airlines Co.',
- 'JetBlue Airways',
- 'PSA Airlines Inc.',
- 'Allegiant Air',
- 'Envoy Air',
- 'Frontier Airlines Inc.',
- 'Hawaiian Airlines Inc.'] #full list of airlines from data, removed non-existent airlines such as Spirit
+airlines = sorted(list(valid_flights["AIRLINE"].unique()))
+airlines.remove("Spirit Air Lines") #no longer operating
 
 left_col, right_col = st.columns([1, 1.5], gap="large")
 
@@ -44,12 +48,11 @@ with left_col:
     )
 
     airport_name_lookup = (
-    airline_information
+    airport_information
     .set_index("iata_code")["municipality"]
     .to_dict())
 
-
-    origins = list(data['ORIGIN'].unique())
+    origins = sorted(list(valid_flights.loc[valid_flights["AIRLINE"] == airline, "ORIGIN"].unique()))
 
     origin = st.selectbox(
         "Origin Airport",
@@ -58,7 +61,7 @@ with left_col:
     )
 
     # filter destination by origin to prevent selecting routes not found in the training data
-    destinations = list(data.loc[data["ORIGIN"] == origin, "DEST"].unique())
+    destinations = sorted(list(valid_flights.loc[(valid_flights["ORIGIN"] == origin) & (valid_flights["AIRLINE"] == airline), "DEST"].unique()))
 
 
     destination = st.selectbox(
@@ -94,23 +97,21 @@ with left_col:
     dep_hour = dep_time.hour
 
 
-origin_information = airline_information[airline_information['iata_code'] == origin].iloc[0]
+origin_information = airport_information[airport_information['iata_code'] == origin].iloc[0]
 origin_latitude = float(origin_information['latitude_deg'])
 origin_longitude = float(origin_information["longitude_deg"])
 
-dest_information = airline_information[airline_information['iata_code'] == destination].iloc[0]
+dest_information = airport_information[airport_information['iata_code'] == destination].iloc[0]
 dest_latitude = float(dest_information['latitude_deg'])
 dest_longitude = float(dest_information["longitude_deg"])
 
 dest_timezone = dest_information['timezone']
 origin_timezone = origin_information['timezone']
 
-departure_time = time(hour=dep_hour)
-
 #add local timezone to departure time
 departure_local = pd.Timestamp.combine(
     departure_date,
-    departure_time
+    dep_time
 ).tz_localize(origin_timezone)
 
 #create arrival time by adding elapsed time and converting to local time at destination
@@ -228,7 +229,7 @@ def get_weather_data(latitude, longitude, weather_hour):
         "timezone": "GMT"
     }
 
-    response = requests.get(url, params=payload)
+    response = requests.get(url, params=payload, timeout=10)
 
 
     response.raise_for_status()
@@ -359,7 +360,7 @@ if predict_button:
 
     probability = model.predict_proba(flight)[0, 1]
 
-    prediction = model.predict(flight)[0]
+    prediction = int(probability >= 0.5)
 
     st.metric(
         "Probability of 15+ Minute Delay",
@@ -374,6 +375,7 @@ if predict_button:
         st.success(
             "This flight is predicted to arrive on time"
         )
+
 
 with st.expander("Prediction Calculation"):
 

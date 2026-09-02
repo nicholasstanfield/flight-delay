@@ -56,7 +56,7 @@ model = make_pipeline(
 
 mlflow.sklearn.autolog()
 
-with mlflow.start_run(run_name="xgboost_model_no_weather"):
+with mlflow.start_run(run_name="xgboost_model"):
 
     model.fit(X_train, y_train)
 
