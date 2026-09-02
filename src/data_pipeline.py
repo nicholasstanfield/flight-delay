@@ -87,7 +87,7 @@ def drop_last_day(df):
 
     return df
 
-#TODO MERGE COORDS 
+
 def add_airport_coords(df):
 
     airports = pd.read_csv("data/raw/airport_coordinates_20260819.csv") 
@@ -107,7 +107,6 @@ def add_airport_coords(df):
 
     return df
 
-#TODO CONVERT CRS TIME INTO HOURS 
 def convert_crs_to_hours(df):
     """ 
 
@@ -237,6 +236,7 @@ df = drop_duplicates(df)
 df = remove_cancelled_flights(df)
 df = drop_missing_y_data(df)
 df = create_airline_column(df)
+
 df = drop_redundant_cols(df, ["ORIGIN_CITY_NAME","DEST_CITY_NAME","ARR_DELAY_NEW"])
 df = make_route(df)
 df = convert_delay_to_int(df)
