@@ -66,6 +66,7 @@
 
 * A wide range of other models, e.g. logistic regression, random forests, gradient boosted classifiers were tested but XGBoost slight outperformed them. 
     * See `notebooks/model_exploration` and `notebooks/Weather Models` for full details
+    * All models were logged using MLFlow
 
 * Hyperparameters were tuned using `RandomSearchCV` 
 

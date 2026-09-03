@@ -1,0 +1,352 @@
+,iata_code,latitude_deg,longitude_deg,timezone,municipality,display_label,airport_name
+0,EVV,38.0369987488,-87.5324020386,America/Chicago,Evansville,EVV (Evansville),Evansville Regional Airport
+1,CDV,60.491798,-145.477997,America/Anchorage,Cordova,CDV (Cordova),Merle K (Mudhole) Smith Airport
+2,HDN,40.481201,-107.218002,America/Denver,Hayden,HDN (Hayden),Yampa Valley Airport
+3,JAC,43.6073,-110.737999,America/Denver,Jackson,JAC (Jackson),Jackson Hole Airport
+4,HPN,41.06700134277344,-73.70760345458984,America/New_York,White Plains,HPN (White Plains),Westchester County Airport
+5,DDC,37.76340103149414,-99.9655990600586,America/Chicago,Dodge City,DDC (Dodge City),Dodge City Regional Airport
+6,MCO,28.429399490356445,-81.30899810791016,America/New_York,Orlando,MCO (Orlando),Orlando International Airport
+7,TOL,41.5868,-83.8078,America/New_York,Toledo,TOL (Toledo),Eugene F. Kranz Toledo Express Airport
+8,SYR,43.11119842529297,-76.1063003540039,America/New_York,Syracuse,SYR (Syracuse),Syracuse Hancock International Airport
+9,LRD,27.5438,-99.461601,America/Chicago,Laredo,LRD (Laredo),Laredo International Airport
+10,SWF,41.50421,-74.108901,America/New_York,Newburgh,SWF (Newburgh),New York Stewart International Airport
+11,PLN,45.57089996,-84.79669952,America/Detroit,Pellston,PLN (Pellston),Pellston Regional Airport of Emmet County Airport
+12,MFR,42.374199,-122.873001,America/Los_Angeles,Medford,MFR (Medford),Rogue Valley International-Medford Airport
+13,TLH,30.401209,-84.35433,America/New_York,Tallahassee,TLH (Tallahassee),Tallahassee International Airport
+14,FLL,26.072599,-80.152702,America/New_York,Fort Lauderdale,FLL (Fort Lauderdale),Fort Lauderdale Hollywood International Airport
+15,DTW,42.21377,-83.353786,America/Detroit,Detroit,DTW (Detroit),Detroit Metropolitan Wayne County Airport
+16,ELP,31.809908,-106.375607,America/Denver,El Paso,ELP (El Paso),El Paso International Airport
+17,ROC,43.1189,-77.672401,America/New_York,Rochester,ROC (Rochester),Frederick Douglass Greater Rochester International Airport
+18,CLT,35.2140007019043,-80.94309997558594,America/New_York,Charlotte,CLT (Charlotte),Charlotte Douglas International Airport
+19,GST,58.4253006,-135.7070007,America/Juneau,Gustavus,GST (Gustavus),Gustavus Airport
+20,BLV,38.5452,-89.835197,America/Chicago,Belleville,BLV (Belleville),Scott AFB/Midamerica Airport
+21,SAT,29.533701,-98.469803,America/Chicago,San Antonio,SAT (San Antonio),San Antonio International Airport
+22,JAN,32.311199,-90.075897,America/Chicago,Jackson,JAN (Jackson),Jackson-Medgar Wiley Evers International Airport
+23,MGW,39.643305,-79.917598,America/New_York,Morgantown,MGW (Morgantown),Morgantown Municipal Airport Walter L. (Bill) Hart Field
+24,SCE,40.849374,-77.84852,America/New_York,State College,SCE (State College),State College Regional Airport
+25,STT,18.337091,-64.977251,America/St_Thomas,Charlotte Amalie,STT (Charlotte Amalie),Cyril E. King Airport
+26,MHK,39.14099884033203,-96.6707992553711,America/Chicago,Manhattan,MHK (Manhattan),Manhattan Regional Airport
+27,OKC,35.393388,-97.598248,America/Chicago,Oklahoma City,OKC (Oklahoma City),OKC Will Rogers World Airport
+28,RIC,37.505199,-77.319702,America/New_York,Richmond,RIC (Richmond),Richmond International Airport
+29,IDA,43.514599,-112.070999,America/Boise,Idaho Falls,IDA (Idaho Falls),Idaho Falls Regional Airport
+30,BUR,34.202834,-118.35805,America/Los_Angeles,Burbank,BUR (Burbank),Hollywood Burbank/Bob Hope Airport
+31,SJT,31.35770034790039,-100.49600219726562,America/Chicago,San Angelo,SJT (San Angelo),San Angelo Regional Mathis Field
+32,SAV,32.126591,-81.19998,America/New_York,Savannah,SAV (Savannah),Savannah Hilton Head International Airport
+33,LAS,36.083361,-115.151817,America/Los_Angeles,Las Vegas,LAS (Las Vegas),Harry Reid International Airport
+34,SGF,37.245047,-93.388596,America/Chicago,Springfield,SGF (Springfield),Springfield Branson National Airport
+35,CHS,32.896159,-80.038151,America/New_York,Charleston,CHS (Charleston),Charleston International Airport
+36,ITO,19.72135,-155.045428,Pacific/Honolulu,Hilo,ITO (Hilo),Hilo International Airport
+37,GNV,29.6900997162,-82.2717971802,America/New_York,Gainesville,GNV (Gainesville),Gainesville Regional Airport
+38,FOD,42.552624,-94.191237,America/Chicago,Fort Dodge,FOD (Fort Dodge),Fort Dodge Regional Airport
+39,PWM,43.646198,-70.309303,America/New_York,Portland,PWM (Portland),Portland International Jetport
+40,MQT,46.351498,-87.395884,America/Detroit,Gwinn,MQT (Gwinn),Marquette Sawyer Regional Airport
+41,GRR,42.880798,-85.522797,America/Detroit,Grand Rapids,GRR (Grand Rapids),Gerald R. Ford International Airport
+42,MIA,25.796011,-80.289751,America/New_York,Miami,MIA (Miami),Miami International Airport
+43,SCC,70.19470215,-148.4649963,America/Anchorage,Deadhorse,SCC (Deadhorse),Deadhorse Airport
+44,BIS,46.772734,-100.746874,America/Chicago,Bismarck,BIS (Bismarck),Bismarck Municipal Airport
+45,ECP,30.357106,-85.795414,America/Chicago,Panama City Beach,ECP (Panama City Beach),Northwest Florida Beaches International Airport
+46,AVP,41.337064,-75.724232,America/New_York,Wilkes-Barre/Scranton,AVP (Wilkes-Barre/Scranton),Wilkes-Barre/Scranton International Airport
+47,DLH,46.841873,-92.198746,America/Chicago,Duluth,DLH (Duluth),Duluth International Airport
+48,PSP,33.8297,-116.507004,America/Los_Angeles,Palm Springs,PSP (Palm Springs),Palm Springs International Airport
+49,STC,45.5466,-94.059898,America/Chicago,Saint Cloud,STC (Saint Cloud),Saint Cloud Regional Airport
+50,ORF,36.895341,-76.201,America/New_York,Norfolk,ORF (Norfolk),Norfolk International Airport
+51,CLL,30.5886,-96.3638,America/Chicago,College Station,CLL (College Station),Easterwood Field
+52,HRL,26.228500366210938,-97.65440368652344,America/Chicago,Harlingen,HRL (Harlingen),Valley International Airport
+53,VPS,30.481315,-86.515839,America/Chicago,Valparaiso,VPS (Valparaiso),Destin-Fort Walton Beach Airport
+54,DIK,46.797533,-102.801905,America/Denver,Dickinson,DIK (Dickinson),Dickinson Theodore Roosevelt Regional Airport
+55,FAI,64.815102,-147.856003,America/Anchorage,Fairbanks,FAI (Fairbanks),Fairbanks International Airport
+56,BOS,42.36197,-71.0079,America/New_York,Boston,BOS (Boston),Boston Logan International Airport
+57,XWA,48.260863,-103.75116,America/Chicago,Williston,XWA (Williston),Williston Basin International Airport
+58,MEI,32.3326,-88.7519,America/Chicago,Meridian,MEI (Meridian),Key Field / Meridian Regional Airport
+59,MDT,40.192838,-76.762333,America/New_York,Harrisburg,MDT (Harrisburg),Harrisburg International Airport
+60,BRD,46.402861,-94.129727,America/Chicago,Brainerd,BRD (Brainerd),Brainerd Lakes Regional Airport
+61,SBP,35.236801147499996,-120.641998291,America/Los_Angeles,San Luis Obispo,SBP (San Luis Obispo),San Luis County Regional Airport
+62,PPG,-14.331,-170.710007,Pacific/Pago_Pago,Pago Pago,PPG (Pago Pago),Pago Pago International Airport
+63,AKN,58.677845,-156.651965,America/Anchorage,King Salmon,AKN (King Salmon),King Salmon Airport
+64,HLN,46.6068,-111.983002,America/Denver,Helena,HLN (Helena),Helena Regional Airport
+65,WRG,56.48429871,-132.3699951,America/Sitka,Wrangell,WRG (Wrangell),Wrangell Airport
+66,EAR,40.727001,-99.006798,America/Chicago,Kearney,EAR (Kearney),Kearney Regional Airport
+67,LEX,38.035066,-84.606738,America/New_York,Lexington,LEX (Lexington),Blue Grass Airport
+68,BUF,42.940498,-78.732201,America/New_York,Buffalo,BUF (Buffalo),Buffalo Niagara International Airport
+69,OTH,43.41709899902344,-124.24600219726562,America/Los_Angeles,North Bend,OTH (North Bend),Southwest Oregon Regional Airport
+70,MHT,42.932598,-71.435699,America/New_York,Manchester,MHT (Manchester),Manchester-Boston Regional Airport
+71,CMX,47.168399810791016,-88.48909759521484,America/Detroit,Hancock,CMX (Hancock),Houghton County Memorial Airport
+72,TUL,36.197084,-95.886225,America/Chicago,Tulsa,TUL (Tulsa),Tulsa International Airport
+73,BIH,37.3731,-118.363998,America/Los_Angeles,Bishop,BIH (Bishop),Eastern Sierra Regional Airport
+74,MLB,28.102009,-80.641088,America/New_York,Melbourne,MLB (Melbourne),Melbourne Orlando International Airport
+75,GSP,34.895699,-82.218903,America/New_York,Greenville/Greer/Spartanburg,GSP (Greenville/Greer/Spartanburg),Greenville-Spartanburg International Airport
+76,MCW,43.159801,-93.329716,America/Chicago,Mason City,MCW (Mason City),Mason City Municipal Airport
+77,LBL,37.0442009,-100.9599991,America/Chicago,Liberal,LBL (Liberal),Liberal Mid-America Regional Airport
+78,CPR,42.907381,-106.461609,America/Denver,Casper,CPR (Casper),Casper-Natrona County International Airport
+79,GEG,47.6199,-117.533997,America/Los_Angeles,Spokane,GEG (Spokane),Spokane International Airport
+80,GUC,38.534672,-106.934566,America/Denver,Gunnison,GUC (Gunnison),Gunnison Crested Butte Regional Airport
+81,LAR,41.31209945678711,-105.6750030517578,America/Denver,Laramie,LAR (Laramie),Laramie Regional Airport
+82,SLC,40.78886,-111.979866,America/Denver,Salt Lake City,SLC (Salt Lake City),Salt Lake City International Airport
+83,DRO,37.151501,-107.753998,America/Denver,Durango,DRO (Durango),Durango La Plata County Airport
+84,PIT,40.491501,-80.232903,America/New_York,Pittsburgh,PIT (Pittsburgh),Pittsburgh International Airport
+85,TYR,32.35409927368164,-95.40239715576172,America/Chicago,Tyler,TYR (Tyler),Tyler Pounds Regional Airport
+86,BQN,18.4949,-67.129402,America/Puerto_Rico,Aguadilla,BQN (Aguadilla),Rafael Hernández International Airport
+87,SUN,43.50439835,-114.2959976,America/Boise,Hailey,SUN (Hailey),Friedman Memorial Airport
+88,BZN,45.778853,-111.153711,America/Denver,Bozeman,BZN (Bozeman),Bozeman Yellowstone International Airport
+89,OME,64.51219940185547,-165.44500732421875,America/Nome,Nome,OME (Nome),Nome Airport
+90,SRQ,27.394631,-82.554359,America/New_York,Sarasota/Bradenton,SRQ (Sarasota/Bradenton),Sarasota Bradenton International Airport
+91,DEN,39.860027,-104.673792,America/Denver,Denver,DEN (Denver),Denver International Airport
+92,BLI,48.79280090332031,-122.53800201416016,America/Los_Angeles,Bellingham,BLI (Bellingham),Bellingham International Airport
+93,SFB,28.774277,-81.234626,America/New_York,Orlando,SFB (Orlando),Orlando Sanford International Airport
+94,CRP,27.770399,-97.501198,America/Chicago,Corpus Christi,CRP (Corpus Christi),Corpus Christi International Airport
+95,LGB,33.816523,-118.149891,America/Los_Angeles,Long Beach,LGB (Long Beach),Long Beach International Airport
+96,ILM,34.272345,-77.905117,America/New_York,Wilmington,ILM (Wilmington),Wilmington International Airport
+97,DAB,29.18255,-81.059464,America/New_York,Daytona Beach,DAB (Daytona Beach),Daytona Beach International Airport
+98,SJC,37.362452,-121.929188,America/Los_Angeles,San Jose,SJC (San Jose),Mineta San Jose International Airport
+99,MSY,29.993401,-90.264673,America/Chicago,New Orleans,MSY (New Orleans),Louis Armstrong New Orleans International Airport
+100,SPI,39.844101,-89.677902,America/Chicago,Springfield,SPI (Springfield),Abraham Lincoln Capital Airport
+101,CLE,41.411701,-81.8498,America/New_York,Cleveland,CLE (Cleveland),Cleveland Hopkins International Airport
+102,JNU,58.354935,-134.574416,America/Juneau,Juneau,JNU (Juneau),Juneau International Airport
+103,ATW,44.258515,-88.519,America/Chicago,Appleton,ATW (Appleton),Appleton International Airport
+104,MGM,32.300598,-86.393997,America/Chicago,Montgomery,MGM (Montgomery),Montgomery Regional (Dannelly Field) Airport
+105,COS,38.805801,-104.700996,America/Denver,Colorado Springs,COS (Colorado Springs),City of Colorado Springs Municipal Airport
+106,SDF,38.1706,-85.735076,America/Kentucky/Louisville,Louisville,SDF (Louisville),Louisville Muhammad Ali International Airport
+107,ITH,42.49100112915039,-76.4583969116211,America/New_York,Ithaca,ITH (Ithaca),Ithaca Tompkins Regional Airport
+108,MTJ,38.5098,-107.893997,America/Denver,Montrose,MTJ (Montrose),Montrose Regional Airport
+109,MRY,36.586777,-121.844183,America/Los_Angeles,Monterey,MRY (Monterey),Monterey Regional Airport
+110,GSO,36.09937,-79.937262,America/New_York,Greensboro,GSO (Greensboro),Piedmont Triad International Airport
+111,CMI,40.039819,-88.276249,America/Chicago,Savoy,CMI (Savoy),University of Illinois Willard Airport
+112,MCI,39.301699,-94.713893,America/Chicago,Kansas City,MCI (Kansas City),Kansas City International Airport
+113,MKE,42.947201,-87.896599,America/Chicago,Milwaukee,MKE (Milwaukee),General Mitchell International Airport
+114,SUX,42.397605,-96.382237,America/Chicago,Sioux City,SUX (Sioux City),Sioux Gateway Airport / Brigadier General Bud Day Field
+115,ERI,42.083127,-80.173867,America/New_York,Erie,ERI (Erie),Erie International Tom Ridge Field
+116,CAE,33.938172,-81.123022,America/New_York,Columbia,CAE (Columbia),Columbia Metropolitan Airport
+117,BHM,33.562877,-86.750712,America/Chicago,Birmingham,BHM (Birmingham),Birmingham-Shuttlesworth International Airport
+118,GRI,40.967498779296875,-98.30960083007812,America/Chicago,Grand Island,GRI (Grand Island),Central Nebraska Regional Airport
+119,MVY,41.3931007385,-70.6143035889,America/New_York,Martha's Vineyard,MVY (Martha's Vineyard),Martha's Vineyard Airport
+120,BWI,39.1754,-76.668297,America/New_York,Baltimore,BWI (Baltimore),Baltimore/Washington International Thurgood Marshall Airport
+121,PSE,18.008301,-66.563004,America/Puerto_Rico,Ponce,PSE (Ponce),Mercedita International Airport
+122,PNS,30.472718,-87.186639,America/Chicago,Pensacola,PNS (Pensacola),Pensacola International Airport
+123,AZO,42.232105,-85.549637,America/Detroit,Kalamazoo,AZO (Kalamazoo),Kalamazoo/Battle Creek International Airport
+124,ADK,51.883564,-176.642783,America/Adak,Adak,ADK (Adak),Adak Airport
+125,PHX,33.435302,-112.005905,America/Phoenix,Phoenix,PHX (Phoenix),Phoenix Sky Harbor International Airport
+126,XNA,36.281898,-94.306801,America/Chicago,Fayetteville/Springdale/Rogers,XNA (Fayetteville/Springdale/Rogers),Northwest Arkansas National Airport
+127,BGM,42.20869827,-75.97979736,America/New_York,Binghamton,BGM (Binghamton),Greater Binghamton/Edwin A Link field
+128,FAR,46.9207,-96.815804,America/Chicago,Fargo,FAR (Fargo),Hector International Airport
+129,SMX,34.898899,-120.457001,America/Los_Angeles,Santa Maria,SMX (Santa Maria),Santa Maria Public Airport Captain G Allan Hancock Field
+130,ACK,41.25310135,-70.06020355,America/New_York,Nantucket,ACK (Nantucket),Nantucket Memorial Airport
+131,BOI,43.5644,-116.223,America/Boise,Boise,BOI (Boise),Boise Air Terminal/Gowen Field
+132,PSC,46.264702,-119.119003,America/Los_Angeles,Pasco,PSC (Pasco),Tri Cities Airport
+133,BFF,41.87400055,-103.5960007,America/Denver,Scottsbluff,BFF (Scottsbluff),Western Neb. Rgnl/William B. Heilig Airport
+134,RST,43.908298,-92.5,America/Chicago,Rochester,RST (Rochester),Rochester International Airport
+135,MFE,26.176141,-98.237965,America/Chicago,McAllen,MFE (McAllen),McAllen Miller International Airport
+136,PQI,46.688999,-68.0448,America/New_York,Presque Isle,PQI (Presque Isle),Presque Isle International Airport
+137,RDD,40.50899887,-122.2929993,America/Los_Angeles,Redding,RDD (Redding),Redding Municipal Airport
+138,KOA,19.738783,-156.045603,Pacific/Honolulu,Kailua-Kona,KOA (Kailua-Kona),Ellison Onizuka Kona International Airport at Keāhole
+139,JMS,46.92969894,-98.67819977,America/Chicago,Jamestown,JMS (Jamestown),Jamestown Regional Airport
+140,SPS,33.9888,-98.491898,America/Chicago,Wichita Falls,SPS (Wichita Falls),Wichita Falls Municipal Airport / Sheppard Air Force Base
+141,LAW,34.567699,-98.416603,America/Chicago,Lawton,LAW (Lawton),Lawton Fort Sill Regional Airport
+142,BGR,44.806364,-68.826668,America/New_York,Bangor,BGR (Bangor),Bangor International Airport
+143,RAP,44.0452995300293,-103.05699920654295,America/Denver,Rapid City,RAP (Rapid City),Rapid City Regional Airport
+144,LCH,30.126100540161133,-93.22329711914062,America/Chicago,Lake Charles,LCH (Lake Charles),Lake Charles Regional Airport
+145,BMI,40.4771,-88.915901,America/Chicago,Bloomington/Normal,BMI (Bloomington/Normal),Central Illinois Regional Airport at Bloomington-Normal
+146,PAE,47.9063,-122.281998,America/Los_Angeles,Everett,PAE (Everett),Seattle Paine Field International Airport
+147,TTN,40.276699,-74.813499,America/New_York,Ewing Township,TTN (Ewing Township),Trenton Mercer Airport
+148,ORD,41.9786,-87.9048,America/Chicago,Chicago,ORD (Chicago),Chicago O'Hare International Airport
+149,EWR,40.6894,-74.170545,America/New_York,Newark,EWR (Newark),Newark Liberty International Airport
+150,CMH,39.998001,-82.891899,America/New_York,Columbus,CMH (Columbus),John Glenn Columbus International Airport
+151,RDU,35.878659,-78.7873,America/New_York,Raleigh/Durham,RDU (Raleigh/Durham),Raleigh-Durham International Airport
+152,CID,41.884701,-91.7108,America/Chicago,Cedar Rapids,CID (Cedar Rapids),The Eastern Iowa Airport
+153,SHR,44.76919937133789,-106.9800033569336,America/Denver,Sheridan,SHR (Sheridan),Sheridan County Airport
+154,FWA,40.978896,-85.194465,America/Indiana/Indianapolis,Fort Wayne,FWA (Fort Wayne),Fort Wayne International Airport
+155,MLI,41.448502,-90.5075,America/Chicago,Moline,MLI (Moline),Quad City International Airport
+156,CVG,39.048801,-84.667801,America/New_York,Cincinnati / Covington,CVG (Cincinnati / Covington),Cincinnati Northern Kentucky International Airport
+157,ACV,40.978101,-124.109,America/Los_Angeles,Arcata/Eureka,ACV (Arcata/Eureka),California Redwood Coast-Humboldt County Airport
+158,DSM,41.534027,-93.656719,America/Chicago,Des Moines,DSM (Des Moines),Des Moines International Airport
+159,USA,35.387798,-80.709099,America/New_York,Concord,USA (Concord),Concord-Padgett Regional Airport
+160,MOT,48.25801,-101.279123,America/Chicago,Minot,MOT (Minot),Minot International Airport
+161,PHL,39.871899,-75.241096,America/New_York,Philadelphia,PHL (Philadelphia),Philadelphia International Airport
+162,RDM,44.254101,-121.150002,America/Los_Angeles,Redmond,RDM (Redmond),Roberts Field
+163,JST,40.31610107421875,-78.83390045166016,America/New_York,Johnstown,JST (Johnstown),John Murtha Johnstown Cambria County Airport
+164,OTZ,66.88469696,-162.598999,America/Nome,Kotzebue,OTZ (Kotzebue),Ralph Wien Memorial Airport
+165,LNK,40.844882,-96.76178,America/Chicago,Lincoln,LNK (Lincoln),Lincoln Airport
+166,CKB,39.2966,-80.228104,America/New_York,Bridgeport,CKB (Bridgeport),North Central West Virginia Airport
+167,ALO,42.557098388671875,-92.40029907226562,America/Chicago,Waterloo,ALO (Waterloo),Waterloo Regional Airport
+168,FAT,36.775767,-119.718018,America/Los_Angeles,Fresno,FAT (Fresno),Fresno Yosemite International Airport
+169,PGD,26.9202,-81.990501,America/New_York,Punta Gorda,PGD (Punta Gorda),Punta Gorda Airport
+170,LAN,42.777582,-84.585721,America/Detroit,Lansing,LAN (Lansing),Capital Region International Airport
+171,DVL,48.115454,-98.908796,America/Chicago,Devils Lake,DVL (Devils Lake),Devils Lake Regional Airport
+172,ICT,37.650314,-97.428583,America/Chicago,Wichita,ICT (Wichita),Wichita Dwight D. Eisenhower National Airport
+173,PSG,56.80170059,-132.9450073,America/Sitka,Petersburg,PSG (Petersburg),Petersburg James A Johnson Airport
+174,GTF,47.481998,-111.371002,America/Denver,Great Falls,GTF (Great Falls),Great Falls International Airport
+175,ASE,39.223202,-106.869003,America/Denver,Aspen,ASE (Aspen),Aspen-Pitkin County Airport (Sardy Field)
+176,TYS,35.811001,-83.994003,America/New_York,Knoxville/Maryville,TYS (Knoxville/Maryville),McGhee Tyson Airport
+177,LSE,43.879002,-91.256699,America/Chicago,La Crosse,LSE (La Crosse),La Crosse Regional Airport
+178,COU,38.8181,-92.219597,America/Chicago,Columbia,COU (Columbia),Columbia Regional Airport
+179,MOB,30.6912,-88.242798,America/Chicago,Mobile,MOB (Mobile),Mobile Regional Airport
+180,GPT,30.405582,-89.069836,America/Chicago,Gulfport,GPT (Gulfport),Gulfport Biloxi International Airport
+181,FMN,36.741199,-108.230003,America/Denver,Farmington,FMN (Farmington),Four Corners Regional Airport
+182,PIB,31.4671,-89.337097,America/Chicago,Moselle,PIB (Moselle),Hattiesburg Laurel Regional Airport
+183,CYS,41.155701,-104.811997,America/Denver,Cheyenne,CYS (Cheyenne),Cheyenne Regional Jerry Olson Field
+184,BET,60.77980042,-161.8379974,America/Anchorage,Bethel,BET (Bethel),Bethel Airport
+185,ACY,39.456201,-74.577511,America/New_York,Atlantic City,ACY (Atlantic City),Atlantic City International Airport
+186,WYS,44.6884,-111.117996,America/Denver,West Yellowstone,WYS (West Yellowstone),Yellowstone Airport
+187,SLN,38.79100036621094,-97.6521987915039,America/Chicago,Salina,SLN (Salina),Salina Municipal Airport
+188,FLG,35.139757,-111.669826,America/Phoenix,Flagstaff,FLG (Flagstaff),Flagstaff Pulliam Airport
+189,EAU,44.86579895019531,-91.48429870605467,America/Chicago,Eau Claire,EAU (Eau Claire),Chippewa Valley Regional Airport
+190,RNO,39.4991,-119.767998,America/Los_Angeles,Reno,RNO (Reno),Reno Tahoe International Airport
+191,PIH,42.9098014831543,-112.59600067138672,America/Boise,Pocatello,PIH (Pocatello),Pocatello Regional Airport
+192,HYA,41.6693,-70.280403,America/New_York,Hyannis,HYA (Hyannis),Cape Cod Gateway Airport
+193,GJT,39.126663,-108.529387,America/Denver,Grand Junction,GJT (Grand Junction),Grand Junction Regional Airport
+194,ESC,45.723199,-87.088623,America/Detroit,Escanaba,ESC (Escanaba),Delta County Airport
+195,ANC,61.179004,-149.992561,America/Anchorage,Anchorage,ANC (Anchorage),Ted Stevens Anchorage International Airport
+196,BTR,30.533199,-91.149597,America/Chicago,Baton Rouge,BTR (Baton Rouge),Baton Rouge Metropolitan Airport
+197,CRW,38.3731,-81.593201,America/New_York,Charleston,CRW (Charleston),Yeager Airport
+198,PVU,40.218894,-111.722445,America/Denver,Provo,PVU (Provo),Provo Municipal Airport
+199,ALB,42.748299,-73.801697,America/New_York,Albany,ALB (Albany),Albany International Airport
+200,STS,38.50899887,-122.8130035,America/Los_Angeles,Santa Rosa,STS (Santa Rosa),Charles M. Schulz Sonoma County Airport
+201,AGS,33.3699,-81.9645,America/New_York,Augusta,AGS (Augusta),Augusta Regional At Bush Field
+202,AMA,35.217857,-101.706444,America/Chicago,Amarillo,AMA (Amarillo),Rick Husband Amarillo International Airport
+203,SEA,47.447943,-122.310276,America/Los_Angeles,Seattle,SEA (Seattle),Seattle–Tacoma International Airport
+204,VRB,27.6556,-80.417901,America/New_York,Vero Beach,VRB (Vero Beach),Vero Beach Regional Airport
+205,TPA,27.9755,-82.533203,America/New_York,Tampa,TPA (Tampa),Tampa International Airport
+206,ELM,42.1599006652832,-76.8916015625,America/New_York,Elmira/Corning,ELM (Elmira/Corning),Elmira Corning Regional Airport
+207,HSV,34.636244,-86.774378,America/Chicago,Huntsville,HSV (Huntsville),Huntsville International Airport
+208,ABY,31.532946,-84.196215,America/New_York,Albany,ABY (Albany),Southwest Georgia Regional Airport
+209,SBA,34.426201,-119.839996,America/Los_Angeles,Santa Barbara,SBA (Santa Barbara),Santa Barbara Municipal Airport
+210,LBF,41.12620163,-100.6839981,America/Chicago,North Platte,LBF (North Platte),North Platte Regional Airport Lee Bird Field
+211,RHI,45.63119888305664,-89.46749877929688,America/Chicago,Rhinelander,RHI (Rhinelander),Rhinelander Oneida County Airport
+212,DAY,39.902401,-84.219398,America/New_York,Dayton,DAY (Dayton),James M. Cox Dayton International Airport
+213,DCA,38.8521,-77.037697,America/New_York,Washington,DCA (Washington),Ronald Reagan Washington National Airport
+214,TUS,32.115004,-110.938053,America/Phoenix,Tucson,TUS (Tucson),Tucson International Airport
+215,LBE,40.275902,-79.4048,America/New_York,Latrobe,LBE (Latrobe),Arnold Palmer Regional Airport
+216,HYS,38.844521,-99.273148,America/Chicago,Hays,HYS (Hays),Hays Regional Airport
+217,ORH,42.2673,-71.875702,America/New_York,Worcester,ORH (Worcester),Worcester Regional Airport
+218,MSP,44.880081,-93.221741,America/Chicago,Minneapolis,MSP (Minneapolis),Minneapolis–Saint Paul International Airport / Wold–Chamberlain Field
+219,TXK,33.453701,-93.990997,America/Chicago,Texarkana,TXK (Texarkana),Texarkana Regional Airport (Webb Field)
+220,JLN,37.151798,-94.498299,America/Chicago,Joplin,JLN (Joplin),Joplin Regional Airport
+221,IAH,29.9844,-95.3414,America/Chicago,Houston,IAH (Houston),George Bush Intercontinental Airport
+222,LFT,30.205299,-91.987602,America/Chicago,Lafayette,LFT (Lafayette),Lafayette Regional Airport
+223,BJI,47.50939941,-94.93370056,America/Chicago,Bemidji,BJI (Bemidji),Bemidji Regional Airport
+224,SGU,37.036389,-113.510306,America/Denver,St George,SGU (St George),St George Regional Airport
+225,CDC,37.70100021362305,-113.0989990234375,America/Denver,Cedar City,CDC (Cedar City),Cedar City Regional Airport
+226,SCK,37.893279,-121.238079,America/Los_Angeles,Stockton,SCK (Stockton),Stockton Metropolitan Airport
+227,LAF,40.412875,-86.939363,America/Indiana/Indianapolis,West Lafayette,LAF (West Lafayette),Purdue University Airport
+228,BIL,45.808932,-108.541242,America/Denver,Billings,BIL (Billings),Billings Logan International Airport
+229,MYR,33.679699,-78.928299,America/New_York,Myrtle Beach,MYR (Myrtle Beach),Myrtle Beach International Airport
+230,YUM,32.650938,-114.609375,America/Phoenix,Yuma,YUM (Yuma),Yuma International Airport / Marine Corps Air Station Yuma
+231,MSO,46.915816,-114.091107,America/Denver,Missoula,MSO (Missoula),Missoula Montana Airport
+232,AEX,31.325828,-92.546702,America/Chicago,Alexandria,AEX (Alexandria),Alexandria International Airport
+233,LGA,40.777199,-73.872597,America/New_York,New York,LGA (New York),LaGuardia Airport
+234,GCK,37.9275016785,-100.723999023,America/Chicago,Garden City,GCK (Garden City),Garden City Regional Airport
+235,BRO,25.907238,-97.425235,America/Chicago,Brownsville,BRO (Brownsville),Brownsville South Padre Island International Airport
+236,SIT,57.04710006713867,-135.36199951171875,America/Sitka,Sitka,SIT (Sitka),Sitka Rocky Gutierrez Airport
+237,GTR,33.450298,-88.5914,America/Chicago,Columbus/W Point/Starkville,GTR (Columbus/W Point/Starkville),Golden Triangle Regional Airport
+238,HOU,29.645336,-95.276812,America/Chicago,Houston,HOU (Houston),William P. Hobby Airport
+239,IMT,45.81911,-88.114557,America/Menominee,Kingsford,IMT (Kingsford),Ford Airport
+240,HGR,39.708771,-77.728014,America/New_York,Hagerstown,HGR (Hagerstown),Hagerstown Regional Richard A Henson Field
+241,ONT,34.056,-117.600998,America/Los_Angeles,Ontario,ONT (Ontario),Ontario International Airport
+242,MAF,31.942499,-102.202003,America/Chicago,Midland,MAF (Midland),Midland International Air and Space Port
+243,BTM,45.95479965209961,-112.49700164794922,America/Denver,Butte,BTM (Butte),Bert Mooney Airport
+244,EGE,39.64260101,-106.9179993,America/Denver,Eagle,EGE (Eagle),Eagle County Regional Airport
+245,INL,48.566200256347656,-93.4030990600586,America/Chicago,International Falls,INL (International Falls),Falls International Airport
+246,RSW,26.534685,-81.752816,America/New_York,Fort Myers,RSW (Fort Myers),Southwest Florida International Airport
+247,LAX,33.942501,-118.407997,America/Los_Angeles,Los Angeles,LAX (Los Angeles),Los Angeles International Airport
+248,EYW,24.556119,-81.759579,America/New_York,Key West,EYW (Key West),Key West International Airport
+249,CHO,38.13859939575195,-78.4529037475586,America/New_York,Charlottesville,CHO (Charlottesville),Charlottesville Albemarle Airport
+250,CHA,35.035301,-85.203796,America/New_York,Chattanooga,CHA (Chattanooga),Chattanooga Metropolitan Airport (Lovell Field)
+251,SJU,18.4394,-66.001801,America/Puerto_Rico,San Juan,SJU (San Juan),Luis Munoz Marin International Airport
+252,GFK,47.949299,-97.176102,America/Chicago,Grand Forks,GFK (Grand Forks),Grand Forks International Airport
+253,DLG,59.04470062,-158.5050049,America/Anchorage,Dillingham,DLG (Dillingham),Dillingham Airport
+254,FNT,42.969294,-83.743355,America/Detroit,Flint,FNT (Flint),Bishop International Airport
+255,ABR,45.449100494384766,-98.42179870605467,America/Chicago,Aberdeen,ABR (Aberdeen),Aberdeen Regional Airport
+256,SHV,32.444747,-93.826741,America/Chicago,Shreveport,SHV (Shreveport),Shreveport Regional Airport
+257,DEC,39.834598541259766,-88.8656997680664,America/Chicago,Decatur,DEC (Decatur),Decatur Airport
+258,FAY,34.991199,-78.880302,America/New_York,Fayetteville,FAY (Fayetteville),Fayetteville Regional Airport - Grannis Field
+259,RIW,43.064201,-108.459999,America/Denver,Riverton,RIW (Riverton),Central Wyoming Regional Airport
+260,DHN,31.321300506591797,-85.44960021972656,America/Chicago,Dothan,DHN (Dothan),Dothan Regional Airport
+261,OAK,37.720085,-122.221184,America/Los_Angeles,Oakland,OAK (Oakland),Oakland San Francisco Bay Airport
+262,SWO,36.162132,-97.085581,America/Chicago,Stillwater,SWO (Stillwater),Stillwater Regional Airport
+263,CLD,33.1283,-117.279999,America/Los_Angeles,Carlsbad,CLD (Carlsbad),McClellan-Palomar Airport
+264,ATY,44.91400146,-97.15470123,America/Chicago,Watertown,ATY (Watertown),Watertown Regional Airport
+265,RFD,42.1954,-89.097198,America/Chicago,Chicago/Rockford,RFD (Chicago/Rockford),Chicago Rockford International Airport
+266,BFL,35.433601,-119.056999,America/Los_Angeles,Bakersfield,BFL (Bakersfield),Meadows Field
+267,CWA,44.777448,-89.670238,America/Chicago,Mosinee,CWA (Mosinee),Central Wisconsin Airport
+268,HOB,32.6875,-103.217003,America/Denver,Hobbs,HOB (Hobbs),Lea County Regional Airport
+269,TVC,44.741402,-85.582199,America/Detroit,Traverse City,TVC (Traverse City),Cherry Capital Airport
+270,BNA,36.1245,-86.6782,America/Chicago,Nashville,BNA (Nashville),Nashville International Airport
+271,YAK,59.508717,-139.660435,America/Yakutat,Yakutat,YAK (Yakutat),Yakutat Airport
+272,IND,39.7173,-86.294403,America/Indiana/Indianapolis,Indianapolis,IND (Indianapolis),Indianapolis International Airport
+273,AUS,30.197535,-97.662015,America/Chicago,Austin,AUS (Austin),Austin Bergstrom International Airport
+274,SAF,35.6171,-106.088997,America/Denver,Santa Fe,SAF (Santa Fe),Santa Fe Municipal Airport
+275,OMA,41.3032,-95.894096,America/Chicago,Omaha,OMA (Omaha),Eppley Airfield
+276,GGG,32.38399887084961,-94.71150207519533,America/Chicago,Longview,GGG (Longview),East Texas Regional Airport
+277,ADQ,57.75,-152.4940033,America/Anchorage,Kodiak,ADQ (Kodiak),Kodiak Airport
+278,LIT,34.729222,-92.223591,America/Chicago,Little Rock,LIT (Little Rock),Bill & Hillary Clinton National Airport/Adams Field
+279,EWN,35.0730018616,-77.04290008539999,America/New_York,New Bern,EWN (New Bern),Coastal Carolina Regional Airport
+280,KTN,55.35559845,-131.7140045,America/Sitka,Ketchikan,KTN (Ketchikan),Ketchikan International Airport
+281,MEM,35.043845,-89.97634,America/Chicago,Memphis,MEM (Memphis),Frederick W. Smith International Airport
+282,LBB,33.663601,-101.822998,America/Chicago,Lubbock,LBB (Lubbock),Lubbock Preston Smith International Airport
+283,EUG,44.124599,-123.211998,America/Los_Angeles,Eugene,EUG (Eugene),Eugene Airport
+284,TWF,42.4818,-114.487999,America/Boise,Twin Falls,TWF (Twin Falls),Joslin Field Magic Valley Regional Airport
+285,PDX,45.588699,-122.598,America/Los_Angeles,Portland,PDX (Portland),Portland International Airport
+286,LWS,46.3745002746582,-117.01499938964844,America/Los_Angeles,Lewiston,LWS (Lewiston),Lewiston Nez Perce County Airport
+287,JAX,30.492469,-81.687813,America/New_York,Jacksonville,JAX (Jacksonville),Jacksonville International Airport
+288,ABE,40.651773,-75.442797,America/New_York,Allentown/Bethlehem,ABE (Allentown/Bethlehem),Lehigh Valley International Airport
+289,APN,45.0780983,-83.56030273,America/Detroit,Alpena,APN (Alpena),Alpena County Regional Airport
+290,HTS,38.366699,-82.557999,America/New_York,Huntington,HTS (Huntington),Tri-State Airport / Milton J. Ferguson Field
+291,FSD,43.585463,-96.741152,America/Chicago,Sioux Falls,FSD (Sioux Falls),Sioux Falls Regional Airport
+292,TRI,36.475201,-82.407401,America/New_York,Blountville,TRI (Blountville),Tri-Cities Regional TN/VA Airport
+293,FCA,48.310501,-114.255997,America/Denver,Kalispell,FCA (Kalispell),Glacier Park International Airport
+294,HIB,47.384831,-92.836905,America/Chicago,Hibbing,HIB (Hibbing),Range Regional Airport
+295,PRC,34.653502,-112.419883,America/Phoenix,Prescott,PRC (Prescott),Prescott Regional Airport - Ernest A. Love Field
+296,ROW,33.301601,-104.530998,America/Denver,Roswell,ROW (Roswell),Roswell Air Center Airport
+297,MDW,41.785999,-87.752403,America/Chicago,Chicago,MDW (Chicago),Chicago Midway International Airport
+298,PVD,41.725038,-71.425668,America/New_York,Providence/Warwick,PVD (Providence/Warwick),Rhode Island T. F. Green International Airport
+299,CIU,46.242038,-84.462082,America/Detroit,Kincheloe,CIU (Kincheloe),Chippewa County International Airport
+300,HNL,21.318387,-157.92567,Pacific/Honolulu,"Honolulu, Oahu","HNL (Honolulu, Oahu)",Daniel K. Inouye International Airport
+301,MSN,43.1399,-89.337502,America/Chicago,Madison,MSN (Madison),Dane County Regional Truax Field
+302,BPT,29.9508,-94.020699,America/Chicago,Beaumont/Port Arthur,BPT (Beaumont/Port Arthur),Jack Brooks Regional Airport
+303,RKS,41.5942,-109.065001,America/Denver,Rock Springs,RKS (Rock Springs),Southwest Wyoming Regional Airport
+304,LCK,39.813801,-82.927803,America/New_York,Columbus,LCK (Columbus),Rickenbacker International Airport
+305,SAN,32.733601,-117.190002,America/Los_Angeles,San Diego,SAN (San Diego),San Diego International Airport
+306,MLU,32.510899,-92.037697,America/Chicago,Monroe,MLU (Monroe),Monroe Regional Airport
+307,GRB,44.483459,-88.130805,America/Chicago,Green Bay,GRB (Green Bay),Austin Straubel International Airport
+308,MBS,43.533181,-84.083104,America/Detroit,Freeland,MBS (Freeland),MBS International Airport
+309,LIH,21.974393,-159.337146,Pacific/Honolulu,"Lihue, Kauai","LIH (Lihue, Kauai)",Lihue Airport
+310,PIR,44.38270187,-100.2860031,America/Chicago,Pierre,PIR (Pierre),Pierre Regional Airport
+311,SMF,38.6954,-121.591003,America/Los_Angeles,Sacramento,SMF (Sacramento),Sacramento International Airport
+312,PSM,43.0779,-70.823303,America/New_York,Portsmouth,PSM (Portsmouth),Portsmouth International Airport at Pease
+313,OGG,20.896263,-156.431837,Pacific/Honolulu,Kahului,OGG (Kahului),Kahului International Airport
+314,BRW,71.285402,-156.766008,America/Anchorage,Utqiaġvik,BRW (Utqiaġvik),Wiley Post Will Rogers Memorial Airport
+315,STL,38.748697,-90.370003,America/Chicago,St Louis,STL (St Louis),St. Louis Lambert International Airport
+316,OAJ,34.829201,-77.612099,America/New_York,Richlands,OAJ (Richlands),Albert J Ellis Airport
+317,SFO,37.619806,-122.374821,America/Los_Angeles,San Francisco,SFO (San Francisco),San Francisco International Airport
+318,AZA,33.3078,-111.654999,America/Phoenix,Mesa,AZA (Mesa),Mesa Gateway Airport
+319,FSM,35.336601,-94.367401,America/Chicago,Fort Smith,FSM (Fort Smith),Fort Smith Regional Airport
+320,IAD,38.9445,-77.455803,America/New_York,Dulles,IAD (Dulles),Washington Dulles International Airport
+321,VCT,28.85260009765625,-96.9185028076172,America/Chicago,Victoria,VCT (Victoria),Victoria Regional Airport
+322,COD,44.520199,-109.024002,America/Denver,Cody,COD (Cody),Yellowstone Regional Airport
+323,GUM,13.485,144.797282,Pacific/Guam,Hagåtña,GUM (Hagåtña),Antonio B. Won Pat International Airport
+324,PIA,40.663841,-89.692631,America/Chicago,Peoria,PIA (Peoria),General Wayne A. Downing Peoria International Airport
+325,GUF,30.290501,-87.671799,America/Chicago,Gulf Shores,GUF (Gulf Shores),Jack Edwards National Airport
+326,AVL,35.435488,-82.541853,America/New_York,Asheville,AVL (Asheville),Asheville Regional Airport
+327,ABQ,35.039976,-106.608925,America/Denver,Albuquerque,ABQ (Albuquerque),Albuquerque International Sunport
+328,SNA,33.675063,-117.869281,America/Los_Angeles,Santa Ana,SNA (Santa Ana),John Wayne Orange County International Airport
+329,CAK,40.91609954833984,-81.44219970703125,America/New_York,Akron,CAK (Akron),Akron Canton Regional Airport
+330,GRK,31.0672,-97.828903,America/Chicago,Fort Cavazos,GRK (Fort Cavazos),Killeen Regional Airport / Robert Gray Army Airfield
+331,SBN,41.708304,-86.316922,America/Indiana/Indianapolis,South Bend,SBN (South Bend),South Bend International Airport
+332,ROA,37.3255,-79.975403,America/New_York,Roanoke,ROA (Roanoke),Roanoke–Blacksburg Regional Airport
+333,IAG,43.1073,-78.946198,America/New_York,Niagara Falls,IAG (Niagara Falls),Niagara Falls International Airport
+334,SPN,15.119384,145.728848,Pacific/Saipan,"I Fadang, Saipan","SPN (I Fadang, Saipan)",Saipan International Airport
+335,GCC,44.3489,-105.539001,America/Denver,Gillette,GCC (Gillette),Northeast Wyoming Regional Airport
+336,DFW,32.896801,-97.038002,America/Chicago,Dallas-Fort Worth,DFW (Dallas-Fort Worth),Dallas Fort Worth International Airport
+337,BDL,41.938555,-72.688016,America/New_York,Hartford,BDL (Hartford),Bradley International Airport
+338,ACT,31.611299514770508,-97.23049926757812,America/Chicago,Waco,ACT (Waco),Waco Regional Airport
+339,BTV,44.471901,-73.153297,America/New_York,Burlington,BTV (Burlington),Patrick Leahy Burlington International Airport
+340,ABI,32.4113006592,-99.6819000244,America/Chicago,Abilene,ABI (Abilene),Abilene Regional Airport
+341,STX,17.701413,-64.802608,America/St_Thomas,Christiansted,STX (Christiansted),Henry E. Rohlsen Airport
+342,PBG,44.650902,-73.468102,America/New_York,Plattsburgh,PBG (Plattsburgh),Plattsburgh International Airport
+343,ATL,33.6367,-84.428101,America/New_York,Atlanta,ATL (Atlanta),Hartsfield Jackson Atlanta International Airport
+344,PIE,27.9102,-82.687401,America/New_York,Pinellas Park,PIE (Pinellas Park),St. Petersburg Clearwater International Airport
+345,DAL,32.844776,-96.847653,America/Chicago,Dallas,DAL (Dallas),Dallas Love Field
+346,EKO,40.82490158081055,-115.79199981689452,America/Los_Angeles,Elko,EKO (Elko),Elko Regional Airport
+347,JFK,40.639447,-73.779317,America/New_York,New York,JFK (New York),John F. Kennedy International Airport
+348,ISP,40.796324,-73.101703,America/New_York,Islip,ISP (Islip),Long Island MacArthur Airport
+349,HHH,32.2244,-80.697502,America/New_York,Hilton Head Island,HHH (Hilton Head Island),Hilton Head Airport
+350,PBI,26.6832,-80.0956,America/New_York,West Palm Beach,PBI (West Palm Beach),Palm Beach International Airport

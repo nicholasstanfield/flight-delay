@@ -219,7 +219,13 @@ __marimo__/
 
 .DS_Store
 
-data/
+# Large/raw data
+data/raw/
+
+# Large processed training datasets
+data/processed/flight_data_2025.csv
+data/processed/flight_weather_data_2025.csv
+data/processed/weather_2025.parquet
 
 mlflow.db
 
@@ -227,4 +233,6 @@ mlartifacts/
 
 notebooks/pandas_prac.ipynb
 
-models/
+# Keep only final production model
+models/*
+!models/xgboost_v1.joblib
