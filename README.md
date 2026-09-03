@@ -2,11 +2,14 @@
 
 ## Executive Summary
 
-•	Developed an app for passengers to input their flight details and see the forecasted chance of the flight arriving more than 15 minutes late
+*	Developed an app for passengers to input their flight details and see the forecasted chance of the flight arriving more than 15 minutes late
 
-•	Uses a machine learning model trained on historical US flight data enriched with historical weather data 
+*	Uses a machine learning model trained on historical US flight data enriched with historical weather data 
 
-•	When a user clicks predict the app will fetch the forecasted weather for the departure and arrival airports and incorporate the information into the prediction
+*	When a user clicks predict the app will fetch the forecasted weather for the departure and arrival airports and incorporate the information into the prediction
+
+* Passengers can use this app to assist with travel planning, particularly for connecting flights where on-time arrival can be essential
+
 
 ## App Screenshot
 ![Example Image](assets/example-image.png)
@@ -48,7 +51,7 @@
 
 *	2025 data from the [US Bureau of Transportation Statistics]( https://transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FGJ&QO_fu146_anzr=b0-gvzr)
 
-*	Each row was one flight containing departure name, arrival name, distance, date and a binary indicator showing if the flight arrived more than 15 minutes late on arrival
+*	Each row represents one flight containing departure name, arrival name, distance, date and a binary indicator showing if the flight arrived more than 15 minutes late on arrival
 
 *	Weather forecast data from [Open-Meteo]( https://open-meteo.com). Merged into flight data in two ways.
 
