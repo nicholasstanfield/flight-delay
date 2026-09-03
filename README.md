@@ -1,6 +1,6 @@
 # Flight Delay Prediction
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://flight-delay-predictor-123.streamlit.app)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://flight-delay-predictor-app.streamlit.app)
 
 ## Executive Summary
 
