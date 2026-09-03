@@ -25,7 +25,6 @@ COPY data/processed/routes.csv data/processed/routes.csv
 COPY data/processed/valid_flights.csv data/processed/valid_flights.csv
 COPY data/processed/airport_information20260901.csv data/processed/airport_information20260901.csv
 
-
 # run streamlit app 
 EXPOSE 8501
 

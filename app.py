@@ -1,5 +1,6 @@
 import streamlit as st
 import pydeck as pdk
+import plotly.graph_objects as go
 import pandas as pd
 import joblib
 import requests
@@ -27,6 +28,22 @@ def load_data():
     return data, valid_flights, airport_information
 
 data, valid_flights, airport_information = load_data()
+
+def load_browser():
+    user_agent = st.context.headers.get("User-Agent", "").lower()
+
+    if "edg/" in user_agent:
+        return "Edge"
+    elif "opr/" in user_agent:
+        return "Opera"
+    elif "chrome/" in user_agent or "crios/" in user_agent:
+        return "Chrome"
+    elif "safari/" in user_agent:
+        return "Safari"
+    else:
+        return "Other"
+
+browser = load_browser()
 
 st.title("Flight Delay Predictor")
 
@@ -63,7 +80,6 @@ with left_col:
     # filter destination by origin to prevent selecting routes not found in the training data
     destinations = sorted(list(valid_flights.loc[(valid_flights["ORIGIN"] == origin) & (valid_flights["AIRLINE"] == airline), "DEST"].unique()))
 
-
     destination = st.selectbox(
         "Destination Airport",
         destinations,
@@ -79,7 +95,6 @@ with left_col:
 
     crs_elapsed_time = int(route_information["CRS_ELAPSED_TIME"])
     distance = int(route_information["DISTANCE"])
-
 
     # time and location information
     today = date.today()
@@ -190,10 +205,52 @@ route_map = pdk.Deck(
 )
 
 with right_col:
-    st.pydeck_chart(route_map, width="stretch", height=400)
+    if browser == "Safari":
+        fig = go.Figure()
 
+        fig.add_trace(
+            go.Scattergeo(
+                lon=[origin_longitude, dest_longitude],
+                lat=[origin_latitude, dest_latitude],
+                mode="lines+markers+text",
+                text=[origin, destination],
+                textposition="top center",
+                line=dict(width=2, color="#46A0FF"),
+                marker=dict(size=8, color="white"),
+                textfont=dict(color="white"),
+            )
+        )
 
-weather_placeholder = st.empty()
+        fig.update_geos(
+            scope="north america",
+            projection_type="natural earth",
+            showland=True,
+            landcolor="#1F2937",
+            showocean=True,
+            oceancolor="#0E1117",
+            showlakes=True,
+            lakecolor="#0E1117",
+            showcountries=True,
+            countrycolor="#6B7280",
+            showsubunits=True,
+            subunitcolor="#4B5563",
+            bgcolor="#0E1117",
+        )
+
+        fig.update_layout(
+            margin=dict(l=0, r=0, t=0, b=0),
+            height=400,
+            paper_bgcolor="#0E1117",
+            plot_bgcolor="#0E1117",
+            font=dict(color="white"),
+        )
+
+        st.plotly_chart(fig, width="stretch")
+
+        st.write("_Please run this website on Chrome to see an enhanced visual_")
+
+    else:
+        st.pydeck_chart(route_map, width="stretch", height=400)
 
 predict_button = st.button(
     "Predict Delay",
@@ -214,7 +271,6 @@ weather_variables = [
 
 url = "https://api.open-meteo.com/v1/forecast"
 
-
 def get_weather_data(latitude, longitude, weather_hour):
 
     weather_date = weather_hour.date().isoformat()
@@ -231,9 +287,7 @@ def get_weather_data(latitude, longitude, weather_hour):
 
     response = requests.get(url, params=payload, timeout=10)
 
-
     response.raise_for_status()
-
 
     weather_data = response.json()
 
@@ -252,74 +306,36 @@ def get_weather_data(latitude, longitude, weather_hour):
 #only run the api call on button press to reduce api calls 
 if predict_button:
 
-    dep_weather = get_weather_data(origin_latitude, origin_longitude, dep_weather_hour)
+    try:
+        dep_weather = get_weather_data(origin_latitude, origin_longitude, dep_weather_hour)
 
-    dep_temperature = dep_weather["temperature_2m"].iloc[0]
-    dep_precipitation = dep_weather["precipitation"].iloc[0]
-    dep_snowfall = dep_weather["snowfall"].iloc[0]
-    dep_snow_depth = dep_weather["snow_depth"].iloc[0]
-    dep_visibility = dep_weather["visibility"].iloc[0]
-    dep_surface_pressure = dep_weather["surface_pressure"].iloc[0]
-    dep_wind_speed = dep_weather["wind_speed_10m"].iloc[0]
-    dep_wind_gusts = dep_weather["wind_gusts_10m"].iloc[0]
+        arr_weather = get_weather_data(dest_latitude, dest_longitude, arr_weather_hour)
 
-    arr_weather = get_weather_data(dest_latitude, dest_longitude, arr_weather_hour)
+        dep_temperature = dep_weather["temperature_2m"].iloc[0]
+        dep_precipitation = dep_weather["precipitation"].iloc[0]
+        dep_snowfall = dep_weather["snowfall"].iloc[0]
+        dep_snow_depth = dep_weather["snow_depth"].iloc[0]
+        dep_visibility = dep_weather["visibility"].iloc[0]
+        dep_surface_pressure = dep_weather["surface_pressure"].iloc[0]
+        dep_wind_speed = dep_weather["wind_speed_10m"].iloc[0]
+        dep_wind_gusts = dep_weather["wind_gusts_10m"].iloc[0]
 
-    arr_temperature = arr_weather["temperature_2m"].iloc[0]
-    arr_precipitation = arr_weather["precipitation"].iloc[0]
-    arr_snowfall = arr_weather["snowfall"].iloc[0]
-    arr_snow_depth = arr_weather["snow_depth"].iloc[0]
-    arr_visibility = arr_weather["visibility"].iloc[0]
-    arr_surface_pressure = arr_weather["surface_pressure"].iloc[0]
-    arr_wind_speed = arr_weather["wind_speed_10m"].iloc[0]
-    arr_wind_gusts = arr_weather["wind_gusts_10m"].iloc[0]
+        arr_temperature = arr_weather["temperature_2m"].iloc[0]
+        arr_precipitation = arr_weather["precipitation"].iloc[0]
+        arr_snowfall = arr_weather["snowfall"].iloc[0]
+        arr_snow_depth = arr_weather["snow_depth"].iloc[0]
+        arr_visibility = arr_weather["visibility"].iloc[0]
+        arr_surface_pressure = arr_weather["surface_pressure"].iloc[0]
+        arr_wind_speed = arr_weather["wind_speed_10m"].iloc[0]
+        arr_wind_gusts = arr_weather["wind_gusts_10m"].iloc[0]
 
-    with weather_placeholder.container():
+    except requests.exceptions.RequestException as e:
+        st.error(f"An error with the weather API has occured: {e}. Please try again later.")
+        st.stop()
 
-        st.subheader("Weather Forecast")
-
-        dep_col, arr_col = st.columns(2)
-
-        with dep_col:
-            st.markdown(f"### Departure")
-
-            st.caption(
-                departure_local.strftime("%b %d at %H:%M")
-            )
-
-            weather_col1, weather_col2 = st.columns(2)
-
-            weather_col1.metric(
-                "Temperature",
-                f"{dep_temperature:.1f} °C"
-            )
-
-            weather_col2.metric(
-                "Precipitation",
-                f"{dep_precipitation:.1f} mm"
-            )
-
-
-
-        with arr_col:
-            st.markdown(f"### Arrival")
-
-            st.caption(
-                arrival_local.strftime("%b %d at %H:%M")
-            )
-
-            weather_col1, weather_col2 = st.columns(2)
-
-            weather_col1.metric(
-                "Temperature",
-                f"{arr_temperature:.1f} °C"
-            )
-
-            weather_col2.metric(
-                "Precipitation",
-                f"{arr_precipitation:.1f} mm"
-            )
-
+    except:
+        st.error("An error has occured. Please try again later.")
+        st.stop()
 
     # send all prediction information in the exact same format as the training data
     flight = pd.DataFrame({
