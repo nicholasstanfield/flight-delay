@@ -1,5 +1,7 @@
 # Flight Delay Prediction
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://flight-delay-predictor-123.streamlit.app)
+
 ## Executive Summary
 
 *	Developed an app for passengers to input their flight details and see the forecasted chance of the flight arriving more than 15 minutes late
