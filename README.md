@@ -106,3 +106,17 @@
 
 `docker run -p8501:8501 flight-delay`
 
+## Limitations and Learnings
+
+* The app is restricted only to US domestic flights; this is due to the data only be easily available for US domestic flights
+
+    * All data projects are at the mercy of the data, if there is no data freely available for other flights online it is not possible to add other routes
+
+* The weather API does not always work on the online Streamlit app due to rate limits, it still works on local versions
+
+    * The possible fixes involving paying a $50 CAD fee for the commercial API or finding a different free weather API which aligns exactly with the training data
+ 
+* Model performance is still relatively weak for the best performing model with an accuracy similar to the dummy classifier
+    * Predicting flights is an inherently difficult task as often delays are unpredictable and due to factors not easily captured in the data, e.g. unexpected mechanical error, plane is late on the incoming route, heavy congestion at the airport. Significantly better performance a week from the flight departing may not be possible.
+
+
