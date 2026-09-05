@@ -249,7 +249,7 @@ with right_col:
 
         st.plotly_chart(fig, width="stretch")
 
-        st.write("_Please run this website on Chrome to see an enhanced visual_")
+        #st.write("_Please run this website on Chrome to see an enhanced visual_")
 
     else:
         st.pydeck_chart(route_map, width="stretch", height=400)
@@ -323,7 +323,7 @@ def clean_feature_names(feature_names):
         feature = feature.title()
         feature = feature.replace("_", " ")
         feature = feature.replace("Dest", "Destination")
-        feature = feature.replace("Arr", "Arrival")
+        feature = feature.replace("Arr", "Arrival Airport")
         feature = feature.replace("Dep", "Departure")
 
         if "Origin" in feature:
@@ -336,6 +336,8 @@ def clean_feature_names(feature_names):
             feature = "Airline"
         elif feature == "Crs Elapsed Time":
             feature = "Expected Flight Time"
+        elif feature == "Distance":
+            feature = "Flight Distance"
 
         cleaned_features.append(feature)
 
@@ -458,15 +460,17 @@ if predict_button:
 
     st.write("**Factors increasing delay risk**")
 
+    count = 1
     for _, row in positive.iterrows():
-        st.write(f"↑ {row['feature']}")
+        st.write(f"↑ {count}: {row['feature']}")
+        count += 1
 
+    count = 1
     st.write("**Factors reducing delay risk**")
 
     for _, row in negative.iterrows():
-        st.write(f"↓ {row['feature']}")
-
-
+        st.write(f"↓ {count}: {row['feature']}")
+        count += 1
 
 
 with st.expander("Prediction Calculation"):
