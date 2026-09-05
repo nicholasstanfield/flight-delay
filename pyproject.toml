@@ -12,6 +12,7 @@ dependencies = [
     "pydeck",
     "requests",
     "scikit-learn>=1.9.0",
+    "shap>=0.52.0",
     "streamlit>=1.62.0",
     "xgboost>=3.4.0",
 ]

@@ -1,0 +1,401 @@
+import streamlit as st
+import pydeck as pdk
+import plotly.graph_objects as go
+import pandas as pd
+import joblib
+import requests
+from datetime import date, timedelta, time
+
+@st.cache_resource #cache the model to prevent unnecessary reloads
+def load_model():
+    return joblib.load("models/xgboost_v1.joblib")
+
+# load in model created by model_training.py
+model = load_model()
+
+@st.cache_data
+def load_data():
+    # contains flight time and distance for each route
+    data = pd.read_csv("data/processed/routes.csv")
+
+    # contains unique combination of origin, dest and airline 
+    valid_flights = pd.read_csv("data/processed/valid_flights.csv")
+
+
+    # contains lat, lon, timezone and full name for each airport
+    airport_information = pd.read_csv("data/processed/airport_information20260901.csv")
+
+    return data, valid_flights, airport_information
+
+data, valid_flights, airport_information = load_data()
+
+def load_browser():
+    user_agent = st.context.headers.get("User-Agent", "").lower()
+
+    if "edg/" in user_agent:
+        return "Edge"
+    elif "opr/" in user_agent:
+        return "Opera"
+    elif "chrome/" in user_agent or "crios/" in user_agent:
+        return "Chrome"
+    elif "safari/" in user_agent:
+        return "Safari"
+    else:
+        return "Other"
+
+browser = load_browser()
+
+st.title("Flight Delay Predictor")
+
+st.write(
+    "Enter your flight details to estimate the probability "
+    "that your flight will arrive late"
+)
+
+airlines = sorted(list(valid_flights["AIRLINE"].unique()))
+airlines.remove("Spirit Air Lines") #no longer operating
+
+left_col, right_col = st.columns([1, 1.5], gap="large")
+
+with left_col:
+
+    airline = st.selectbox(
+        "Airline",
+        airlines
+    )
+
+    airport_name_lookup = (
+    airport_information
+    .set_index("iata_code")["municipality"]
+    .to_dict())
+
+    origins = sorted(list(valid_flights.loc[valid_flights["AIRLINE"] == airline, "ORIGIN"].unique()))
+
+    origin = st.selectbox(
+        "Origin Airport",
+        origins,
+        format_func=lambda code: f"{code} — {airport_name_lookup.get(code, code)}"
+    )
+
+    # filter destination by origin to prevent selecting routes not found in the training data
+    destinations = sorted(list(valid_flights.loc[(valid_flights["ORIGIN"] == origin) & (valid_flights["AIRLINE"] == airline), "DEST"].unique()))
+
+    destination = st.selectbox(
+        "Destination Airport",
+        destinations,
+        format_func=lambda code: f"{code} — {airport_name_lookup.get(code, code)}"
+    )
+
+    route = origin + "-" + destination
+
+    route_information = data[
+        (data["DEST"] == destination) &
+        (data["ORIGIN"] == origin)
+    ].iloc[0]
+
+    crs_elapsed_time = int(route_information["CRS_ELAPSED_TIME"])
+    distance = int(route_information["DISTANCE"])
+
+    # time and location information
+    today = date.today()
+
+    departure_date = st.date_input("Date of Departure", 
+                                   today, 
+                                   min_value=today, 
+                                   max_value=today + timedelta(days=7))
+
+    month = departure_date.month
+    day_of_month = departure_date.day
+    day_of_week = departure_date.isoweekday()
+
+    dep_time = st.time_input("Scheduled Departure Time")
+    dep_hour = dep_time.hour
+
+
+origin_information = airport_information[airport_information['iata_code'] == origin].iloc[0]
+origin_latitude = float(origin_information['latitude_deg'])
+origin_longitude = float(origin_information["longitude_deg"])
+
+dest_information = airport_information[airport_information['iata_code'] == destination].iloc[0]
+dest_latitude = float(dest_information['latitude_deg'])
+dest_longitude = float(dest_information["longitude_deg"])
+
+dest_timezone = dest_information['timezone']
+origin_timezone = origin_information['timezone']
+
+#add local timezone to departure time
+departure_local = pd.Timestamp.combine(
+    departure_date,
+    dep_time
+).tz_localize(origin_timezone)
+
+#create arrival time by adding elapsed time and converting to local time at destination
+arrival_local = (
+    departure_local
+    + pd.to_timedelta(crs_elapsed_time, unit="m")
+).tz_convert(dest_timezone)
+
+#extract the hour in the expected format for the model
+arr_hour = arrival_local.hour
+
+#convert to standard time zone to match weather api format
+departure_utc = departure_local.tz_convert("UTC")
+arrival_utc = arrival_local.tz_convert("UTC")
+
+dep_weather_hour = departure_utc.floor("h")
+arr_weather_hour = arrival_utc.floor("h")
+
+#route visual
+route_map_data = pd.DataFrame({"origin":[[origin_longitude, origin_latitude]], 
+                               "destination":[[dest_longitude, dest_latitude]]})
+
+arc_layer = pdk.Layer(
+    "ArcLayer",
+    data=route_map_data,
+    get_source_position="origin",
+    get_target_position="destination",
+    get_source_color=[70, 160, 255],
+    get_target_color=[70, 160, 255],
+    get_width=4,
+    get_height=0.5,
+)
+
+airport_map_data = pd.DataFrame({"airport":[origin, destination], 
+                                 "latitude":[origin_latitude, dest_latitude],
+                                 "longitude":[origin_longitude, dest_longitude] })
+
+airport_layer = pdk.Layer(
+    "ScatterplotLayer",
+    data=airport_map_data,
+    get_position="[longitude, latitude]",
+    get_radius=3000,
+    get_fill_color=[255,255,255],
+    pickable=True
+)
+
+label_layer = pdk.Layer(
+    "TextLayer",
+    data=airport_map_data,
+    get_position="[longitude, latitude]",
+    get_text="airport",
+    get_size=16,
+    get_color=[255, 255, 255],
+    get_alignment_baseline="'bottom'",
+    get_pixel_offset=[0, -20],
+)
+
+view_state = pdk.ViewState(
+    latitude=38,
+    longitude=-97,
+    zoom=2.3,
+    pitch=30,
+)
+
+route_map = pdk.Deck(
+    map_style="dark",
+    initial_view_state=view_state,
+    layers=[
+        arc_layer,
+        airport_layer,
+        label_layer
+    ],
+    tooltip={
+        "text": "{airport}"
+    },
+)
+
+with right_col:
+    if browser == "Safari":
+        fig = go.Figure()
+
+        fig.add_trace(
+            go.Scattergeo(
+                lon=[origin_longitude, dest_longitude],
+                lat=[origin_latitude, dest_latitude],
+                mode="lines+markers+text",
+                text=[origin, destination],
+                textposition="top center",
+                line=dict(width=2, color="#46A0FF"),
+                marker=dict(size=8, color="white"),
+                textfont=dict(color="white"),
+            )
+        )
+
+        fig.update_geos(
+            scope="north america",
+            projection_type="natural earth",
+            showland=True,
+            landcolor="#1F2937",
+            showocean=True,
+            oceancolor="#0E1117",
+            showlakes=True,
+            lakecolor="#0E1117",
+            showcountries=True,
+            countrycolor="#6B7280",
+            showsubunits=True,
+            subunitcolor="#4B5563",
+            bgcolor="#0E1117",
+        )
+
+        fig.update_layout(
+            margin=dict(l=0, r=0, t=0, b=0),
+            height=400,
+            paper_bgcolor="#0E1117",
+            plot_bgcolor="#0E1117",
+            font=dict(color="white"),
+        )
+
+        st.plotly_chart(fig, width="stretch")
+
+        st.write("_Please run this website on Chrome to see an enhanced visual_")
+
+    else:
+        st.pydeck_chart(route_map, width="stretch", height=400)
+
+predict_button = st.button(
+    "Predict Delay",
+    type="primary",
+    use_container_width=True)
+
+# get weather forecast for destination and origin at arrival and departure times 
+weather_variables = [
+    "temperature_2m",
+    "precipitation",
+    "snowfall",
+    "snow_depth",
+    "visibility",
+    "surface_pressure",
+    "wind_speed_10m",
+    "wind_gusts_10m",
+]
+
+url = "https://api.open-meteo.com/v1/forecast"
+
+def get_weather_data(latitude, longitude, weather_hour):
+
+    weather_date = weather_hour.date().isoformat()
+    hour = weather_hour.hour
+
+    payload = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "hourly": ",".join(weather_variables),
+        "start_date": weather_date,
+        "end_date": weather_date,
+        "timezone": "GMT"
+    }
+
+    response = requests.get(url, params=payload, timeout=10)
+
+    response.raise_for_status()
+
+    weather_data = response.json()
+
+    weather_df = pd.DataFrame(weather_data["hourly"])
+
+    weather_df["time"] = pd.to_datetime(weather_df["time"])
+    weather_df["hour"] = weather_df["time"].dt.hour
+
+    weather_df = weather_df[
+        weather_df["hour"] == hour
+    ]
+
+    return weather_df
+
+
+#only run the api call on button press to reduce api calls 
+if predict_button:
+
+    try:
+        dep_weather = get_weather_data(origin_latitude, origin_longitude, dep_weather_hour)
+
+        arr_weather = get_weather_data(dest_latitude, dest_longitude, arr_weather_hour)
+
+        dep_temperature = dep_weather["temperature_2m"].iloc[0]
+        dep_precipitation = dep_weather["precipitation"].iloc[0]
+        dep_snowfall = dep_weather["snowfall"].iloc[0]
+        dep_snow_depth = dep_weather["snow_depth"].iloc[0]
+        dep_visibility = dep_weather["visibility"].iloc[0]
+        dep_surface_pressure = dep_weather["surface_pressure"].iloc[0]
+        dep_wind_speed = dep_weather["wind_speed_10m"].iloc[0]
+        dep_wind_gusts = dep_weather["wind_gusts_10m"].iloc[0]
+
+        arr_temperature = arr_weather["temperature_2m"].iloc[0]
+        arr_precipitation = arr_weather["precipitation"].iloc[0]
+        arr_snowfall = arr_weather["snowfall"].iloc[0]
+        arr_snow_depth = arr_weather["snow_depth"].iloc[0]
+        arr_visibility = arr_weather["visibility"].iloc[0]
+        arr_surface_pressure = arr_weather["surface_pressure"].iloc[0]
+        arr_wind_speed = arr_weather["wind_speed_10m"].iloc[0]
+        arr_wind_gusts = arr_weather["wind_gusts_10m"].iloc[0]
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"An error with the weather API has occured: {e}. Please try again later.")
+        st.stop()
+
+    except:
+        st.error("An error has occured. Please try again later.")
+        st.stop()
+
+    # send all prediction information in the exact same format as the training data
+    flight = pd.DataFrame({
+        "AIRLINE": [airline],
+        "ORIGIN": [origin],
+        "DEST": [destination],
+        "MONTH": [month],
+        "DAY_OF_WEEK": [day_of_week],
+        "ARR_SNOWFALL": [arr_snowfall],
+        "CRS_ELAPSED_TIME": [crs_elapsed_time],
+        "ARR_WIND_GUSTS": [arr_wind_gusts],
+        "DISTANCE": [distance],
+        "ARR_VISIBILITY": [arr_visibility],
+        "ORIGIN_LONGITUDE": [origin_longitude],
+        "DEP_VISIBILITY": [dep_visibility],
+        "ARR_PRECIPITATION": [arr_precipitation],
+        "DEP_WIND_GUSTS": [dep_wind_gusts],
+        "DEP_PRECIPITATION": [dep_precipitation],
+        "ARR_SURFACE_PRESSURE": [arr_surface_pressure],
+        "DEP_WIND_SPEED": [dep_wind_speed],
+        "DEP_HOUR": [dep_hour],
+        "DEP_SNOWFALL": [dep_snowfall],
+        "DEP_SNOW_DEPTH": [dep_snow_depth],
+        "ARR_HOUR": [arr_hour],
+        "DEP_TEMPERATURE": [dep_temperature],
+        "ARR_WIND_SPEED": [arr_wind_speed],
+        "DAY_OF_MONTH": [day_of_month],
+        "DEST_LONGITUDE": [dest_longitude],
+        "ORIGIN_LATITUDE": [origin_latitude],
+        "ARR_TEMPERATURE": [arr_temperature],
+        "DEST_LATITUDE": [dest_latitude],
+        "DEP_SURFACE_PRESSURE": [dep_surface_pressure],
+        "ARR_SNOW_DEPTH": [arr_snow_depth],
+        "ROUTE": [route]
+
+
+    })
+
+    probability = model.predict_proba(flight)[0, 1]
+
+    prediction = int(probability >= 0.5)
+
+    st.metric(
+        "Probability of 15+ Minute Delay",
+        f"{probability:.1%}"
+    )
+
+    if prediction == 1:
+        st.warning(
+            "This flight is predicted to be delayed"
+        )
+    else:
+        st.success(
+            "This flight is predicted to arrive on time"
+        )
+
+
+with st.expander("Prediction Calculation"):
+
+    st.info("""
+    This prediction is based on the weather forecast and historical US flight data. The estimate could be inaccurate, particularly for less popular routes.
+    If you would like to learn more, please check out the github repo.""")
+
