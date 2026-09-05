@@ -5,6 +5,8 @@ import pandas as pd
 import joblib
 import requests
 from datetime import date, timedelta, time
+import shap
+import numpy as np
 
 @st.cache_resource #cache the model to prevent unnecessary reloads
 def load_model():
@@ -303,6 +305,41 @@ def get_weather_data(latitude, longitude, weather_hour):
     return weather_df
 
 
+# model explainability
+preprocessor = model.named_steps["columntransformer"]
+xgb_model = model.named_steps["xgbclassifier"]
+
+feature_names = preprocessor.get_feature_names_out()
+
+def clean_feature_names(feature_names):
+
+    features = list(feature_names)
+
+    cleaned_features = []
+
+    for feature in features:
+        feature = feature.replace("num__", "")
+        feature = feature.replace("cat__","")
+        feature = feature.title()
+        feature = feature.replace("_", " ")
+        feature = feature.replace("Dest", "Destination")
+        feature = feature.replace("Arr", "Arrival")
+        feature = feature.replace("Dep", "Departure")
+
+        if "Origin" in feature:
+            feature = "Origin Airport"
+        elif "Dest" in feature:
+            feature = "Destination Airport"
+        elif "Route" in feature:
+            feature = "Flight Route"
+        elif feature == "Crs Elapsed Time":
+            feature = "Expected Flight Time"
+        cleaned_features.append(feature)
+
+
+    return np.array(cleaned_features)
+
+
 #only run the api call on button press to reduce api calls 
 if predict_button:
 
@@ -391,6 +428,42 @@ if predict_button:
         st.success(
             "This flight is predicted to arrive on time"
         )
+
+    # model explainability
+    flight_transformed = preprocessor.transform(flight)
+    feature_names = preprocessor.get_feature_names_out()
+    feature_names = clean_feature_names(feature_names)
+
+    explainer = shap.TreeExplainer(xgb_model)
+
+    shap_values = explainer(flight_transformed)
+
+    explanation = pd.DataFrame({
+        "feature": feature_names,
+        "shap_value": shap_values.values[0]
+    })
+
+    explanation["importance"] = explanation["shap_value"].abs()
+
+    explanation = explanation.sort_values("importance", ascending=False)
+
+    positive = explanation[explanation["shap_value"] > 0].head(3)
+
+    negative = explanation[explanation["shap_value"] < 0 ].head(3)
+
+    st.subheader("Contributing Factors")
+
+    st.write("**Factors increasing delay risk**")
+
+    for _, row in positive.iterrows():
+        st.write(f"↑ {row['feature']}")
+
+    st.write("**Factors reducing delay risk**")
+
+    for _, row in negative.iterrows():
+        st.write(f"↓ {row['feature']}")
+
+
 
 
 with st.expander("Prediction Calculation"):

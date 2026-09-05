@@ -153,7 +153,7 @@ def convert_crs_to_hours(df):
 
     return df
     
-#TODO MERGE WEATHER DATA 
+
 def add_weather_data(df):
     weather = pd.read_parquet("data/processed/weather_2025.parquet")
 
